@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA","file":"main.css","sourcesContent":["body {\r\n    background-color: blue;\r\n    color: linen;\r\n    height: 500px;\r\n}\r\n\r\n\r\n"]}
