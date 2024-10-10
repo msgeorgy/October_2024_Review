@@ -1,3 +1,0 @@
-
-
-alert('gulp already works')
