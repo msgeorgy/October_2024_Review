@@ -1,6 +1,0 @@
-"Practice" 
-=======
- "Testing Branching: From main branch" 
- "Testing Branching: Adding to file_1" 
- "Testing Branching: Adding More to file_1" 
- "Testing Branching: Adding Even More to file_1" 
