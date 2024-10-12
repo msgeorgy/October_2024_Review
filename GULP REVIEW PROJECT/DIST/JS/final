@@ -1,0 +1,1 @@
+let D=document.getElementById("d"),E=document.getElementById("e"),F=document.getElementById("f"),A=document.getElementById("a"),B=document.getElementById("b"),C=document.getElementById("c");alert("gulp already works");

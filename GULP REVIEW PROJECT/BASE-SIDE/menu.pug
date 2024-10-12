@@ -1,0 +1,12 @@
+doctypehtml
+html(lang='en' dir='ltr')
+ head
+  title MAIN
+  link(rel='stylesheet' href='../CSS/final.css')
+ body
+  ul#food
+   -for (let f = 1; f <= 20; f++)
+    li.menu-item=f
+  p Test
+  //script(src="../JS/final.js")
+  script(src="http://localhost:35729/livereload.js")

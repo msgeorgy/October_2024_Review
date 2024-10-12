@@ -1,0 +1,1 @@
+{"version":3,"sources":["footer.css","main.css"],"names":[],"mappings":"AAAA,GACA,MAAA,OACA,KAAA,OAAA,IAAA,KAAA,QACA,YAAA,ECHA,KACA,iBAAA,QACA,MAAA,MACA,OAAA","file":"final.css","sourcesContent":["h1 {\n  color: orange;\n  font: normal 600 60px cursive;\n  margin-left: 0px;\n}","body {\n  background-color: lightblue;\n  color: linen;\n  height: 500px;\n}"]}
