@@ -1,3 +1,6 @@
 *.md
 PURE/
 IGNORE/
+GULP REVIEW PROJECT/node_modules/
+GULP REVIEW PROJECT/package.json
+GULP REVIEW PROJECT/package-lock.json
