@@ -2,6 +2,8 @@ var gulp = require('gulp');
 
 let livereload = require('gulp-livereload');
 
+let BrowserSync = require('browser-sync').create();
+
 let plugins = require('gulp-load-plugins')();
 
 plugins.replace = require('gulp-replace');
@@ -41,7 +43,7 @@ gulp.task('html', function() {
             .pipe(pug({pretty: true}))
             .pipe(gulp.dest('./DIST/HTML/'))
             .pipe(notify())
-            .pipe(livereload())
+            .pipe(BrowserSync.stream())
 
 })
 
@@ -52,7 +54,7 @@ gulp.task('sass', function() {
             .pipe(sass({outputStyle: 'compressed'}))
             .pipe(gulp.dest('./BASE-TO-DIST/Compiled CSS/'))
             .pipe(notify())
-            .pipe(livereload())
+            .pipe(BrowserSync.stream())
 
 })
 
@@ -66,7 +68,7 @@ gulp.task('css', function() {
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest('./DIST/CSS/'))
             .pipe(notify())
-            .pipe(livereload())
+            .pipe(BrowserSync.stream())
 
 })
 
@@ -81,7 +83,7 @@ gulp.task('js', function() {
             .pipe(uglify())
             .pipe(gulp.dest('./DIST/JS/'))
             .pipe(notify())
-            .pipe(livereload())
+            .pipe(BrowserSync.stream())
 
 })
 
@@ -95,7 +97,7 @@ gulp.task('naming', function() {
             }))
             .pipe(gulp.dest('./DIST/FOLDERS'))
             .pipe(notify())
-            .pipe(livereload())
+            .pipe(BrowserSync.stream())
 
 })
 
@@ -105,7 +107,7 @@ gulp.task('rename', function() {
             .pipe(rename({prefix: 'NEW_', basename: 'EXETENSE', suffix: '_CLIENT', extname: '.md'}))
             .pipe(gulp.dest('./DIST/FOLDERS'))
             .pipe(notify())
-            .pipe(livereload())
+            .pipe(BrowserSync.stream())
 
 })
 
@@ -129,9 +131,25 @@ gulp.task('replace', function() {
 
 // })
 
+gulp.task('browser', function() {
+
+    BrowserSync.init({
+        // server: {
+        //     baseDir: './'
+        // }
+        proxy: '.',
+        watch: true,
+        open: false,
+        browser: 'chrome',
+        injectChanges: true,
+    })
+
+})
+
 gulp.task('watch', function() {
     //require('./server.js')
-    livereload.listen()
+    //livereload.listen()
+    BrowserSync.reload
     gulp.watch(['./BASE-SIDE/*.pug', '!./BASE-SIDE/gallery.pug'], gulp.series(['html']))
     gulp.watch(['./BASE-SIDE/*.scss'], gulp.series(['sass']))
     gulp.watch(['./BASE-TO-DIST/Compiled CSS/*.css'], gulp.series(['css']))
