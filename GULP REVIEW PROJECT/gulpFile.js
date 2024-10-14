@@ -43,6 +43,7 @@ gulp.task('html', function() {
             .pipe(pug({pretty: true}))
             .pipe(gulp.dest('./DIST/HTML/'))
             .pipe(notify())
+            //.pipe(livereload())
             .pipe(BrowserSync.stream())
 
 })
@@ -54,6 +55,7 @@ gulp.task('sass', function() {
             .pipe(sass({outputStyle: 'compressed'}))
             .pipe(gulp.dest('./BASE-TO-DIST/Compiled CSS/'))
             .pipe(notify())
+            //.pipe(livereload())
             .pipe(BrowserSync.stream())
 
 })
@@ -68,6 +70,7 @@ gulp.task('css', function() {
             .pipe(sourcemaps.write('.'))
             .pipe(gulp.dest('./DIST/CSS/'))
             .pipe(notify())
+            //.pipe(livereload())
             .pipe(BrowserSync.stream())
 
 })
@@ -83,6 +86,7 @@ gulp.task('js', function() {
             .pipe(uglify())
             .pipe(gulp.dest('./DIST/JS/'))
             .pipe(notify())
+            //.pipe(livereload())
             .pipe(BrowserSync.stream())
 
 })
@@ -97,6 +101,7 @@ gulp.task('naming', function() {
             }))
             .pipe(gulp.dest('./DIST/FOLDERS'))
             .pipe(notify())
+            //.pipe(livereload())
             .pipe(BrowserSync.stream())
 
 })
@@ -107,6 +112,7 @@ gulp.task('rename', function() {
             .pipe(rename({prefix: 'NEW_', basename: 'EXETENSE', suffix: '_CLIENT', extname: '.md'}))
             .pipe(gulp.dest('./DIST/FOLDERS'))
             .pipe(notify())
+            //.pipe(livereload())
             .pipe(BrowserSync.stream())
 
 })
@@ -131,12 +137,23 @@ gulp.task('replace', function() {
 
 // })
 
+//Either this
+
+// gulp.task('browser', function() {
+
+//     BrowserSync.init({
+//         server: {
+//             baseDir: './'
+//         }
+//     })
+
+// })
+
+//Or this
+
 gulp.task('browser', function() {
 
     BrowserSync.init({
-        // server: {
-        //     baseDir: './'
-        // }
         proxy: '.',
         watch: true,
         open: false,
